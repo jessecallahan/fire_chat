@@ -1,25 +1,28 @@
 import React from "react";
 import Chat from "./Chat";
 import { useSelector } from 'react-redux'
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
-function ChatList(props) {
+function ChatList() {
   useFirestoreConnect([
     { collection: 'tickets' }
-  ]);
+  ])
 
   const chatList = useSelector(state => state.firestore.ordered.tickets);
-
+  console.log(chatList)
   if (isLoaded(chatList)) {
     return (
       <React.Fragment>
         <hr />
         {chatList.map((chat) =>
+
           <Chat
             name={chat.name}
             text={chat.text}
+            user_id={chat.user_id}
             id={chat.id}
-            key={chat.id} />
+            key={chat.id}
+          />
 
         )}
       </React.Fragment>

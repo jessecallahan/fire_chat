@@ -1,18 +1,20 @@
 import React from "react";
 import { useFirestore } from 'react-redux-firebase'
+import firebase from "../firebase";
 
 function NewChatForm() {
   const firestore = useFirestore();
-
-  console.log(firestore)
+  const user = firebase.auth().currentUser;
 
   function addChatToFirestore(event) {
     event.preventDefault();
-    // props.onNewChatCreation();
+
     return firestore.collection('tickets').add(
       {
-        name: "jesse",
-        text: event.target.text.value
+        name: user.displayName,
+        text: event.target.text.value,
+        user_id: user.uid,
+        storeAs: firestore.FieldValue.serverTimestamp(),
       }
     );
   }

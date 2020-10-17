@@ -2,14 +2,24 @@
 import React from "react";
 import Header from "./components/Header";
 import ChatControl from "./components/ChatControl";
+import Signin from "./components/SignIn";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <React.Fragment>
+    <Router>
       <Header />
-      <ChatControl />
-    </React.Fragment>
+      <Switch>
+        <Route path="/signin">
+          <Signin />
+        </Route>
+        <Route path="/">
+          <ChatControl />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
+
 
 export default App;
