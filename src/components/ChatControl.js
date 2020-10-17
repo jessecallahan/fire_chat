@@ -14,17 +14,17 @@ class ChatControl extends React.Component {
     };
   }
 
-  handleAddingNewChatToList = (newChat) => {
-    const { dispatch } = this.props;
-    const { id, name, text } = newChat;
-    const action = {
-      type: 'ADD_TICKET',
-      id: id,
-      name: name,
-      text: text
-    }
-    dispatch(action);
-  }
+  // handleAddingNewChatToList = (newChat) => {
+  //   const { dispatch } = this.props;
+  //   const { id, name, text } = newChat;
+  //   const action = {
+  //     type: 'ADD_TICKET',
+  //     id: id,
+  //     name: name,
+  //     text: text
+  //   }
+  //   dispatch(action);
+  // }
 
   render() {
     return (

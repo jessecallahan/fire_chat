@@ -1,17 +1,25 @@
 import React from "react";
-import { v4 } from 'uuid';
-import PropTypes from "prop-types";
+import { useFirestore } from 'react-redux-firebase'
 
-function NewChatForm(props) {
+function NewChatForm() {
+  const firestore = useFirestore();
 
-  function handleNewChatFormSubmission(event) {
+  console.log(firestore)
+
+  function addChatToFirestore(event) {
     event.preventDefault();
-    props.onNewChatCreation({ name: "Jesse", text: event.target.text.value, id: v4() });
+    // props.onNewChatCreation();
+    return firestore.collection('tickets').add(
+      {
+        name: "jesse",
+        text: event.target.text.value
+      }
+    );
   }
 
   return (
     <React.Fragment>
-      <form onSubmit={handleNewChatFormSubmission}>
+      <form onSubmit={addChatToFirestore}>
         <textarea
           name='text'
           placeholder='Say Something...' />
@@ -21,10 +29,6 @@ function NewChatForm(props) {
     </React.Fragment>
   );
 }
-
-NewChatForm.propTypes = {
-  onNewChatCreation: PropTypes.func
-};
 
 export default NewChatForm;
 
