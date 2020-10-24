@@ -5,7 +5,7 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
 function ChatList() {
   useFirestoreConnect([
-    { collection: 'tickets' }
+    { collection: 'tickets', orderBy: ['createdAt', 'asc'] }
   ])
 
   const chatList = useSelector(state => state.firestore.ordered.tickets);
@@ -20,8 +20,6 @@ function ChatList() {
             name={chat.name}
             text={chat.text}
             user_id={chat.user_id}
-            id={chat.id}
-            key={chat.id}
           />
 
         )}

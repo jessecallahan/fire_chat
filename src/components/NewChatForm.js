@@ -14,10 +14,11 @@ function NewChatForm() {
         name: user.displayName,
         text: event.target.text.value,
         user_id: user.uid,
-        storeAs: firestore.FieldValue.serverTimestamp(),
+        createdAt: firestore.FieldValue.serverTimestamp(),
       }
     );
   }
+
 
   return (
     <React.Fragment>
