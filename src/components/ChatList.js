@@ -5,24 +5,24 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
 function ChatList() {
   useFirestoreConnect([
-    { collection: 'tickets', orderBy: ['createdAt', 'asc'] }
+    { collection: 'tickets', orderBy: ['createdAt', 'desc'] }
   ])
 
   const chatList = useSelector(state => state.firestore.ordered.tickets);
   console.log(chatList)
   if (isLoaded(chatList)) {
+    const chatListItems = chatList.map((chat) =>
+      <Chat
+        name={chat.name}
+        text={chat.text}
+        user_id={chat.user_id}
+      />
+    );
     return (
       <React.Fragment>
-        <hr />
-        {chatList.map((chat) =>
-
-          <Chat
-            name={chat.name}
-            text={chat.text}
-            user_id={chat.user_id}
-          />
-
-        )}
+        <ul className="no-bullets">
+          {chatListItems}
+        </ul>
       </React.Fragment>
     );
   } else {

@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 function Chat(props) {
   return (
     <React.Fragment>
-      <h3>{props.name}:</h3>
-      <p><em>{props.text}</em></p>
-      <hr />
+      <div className="background-blue">
+        <h3>{props.name}:</h3>
+        <p><em>{props.text}</em></p>
+        <hr />
+      </div>
     </React.Fragment>
   );
 }

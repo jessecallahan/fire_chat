@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <React.Fragment>
-      <h1>Fire Chat</h1>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/signin">Sign In</Link>
-        </li>
-      </ul>
+      <div className="header">
+        <h1>Fire Chat</h1>
+        <h2> <Link to="/">Home</Link></h2>
+        <h2>  <Link to="/signin">Sign In</Link></h2>
+
+
+
+      </div>
     </React.Fragment>
   );
 }

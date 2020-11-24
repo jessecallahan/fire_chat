@@ -29,9 +29,17 @@ class ChatControl extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <ChatList chatList={this.props.masterChatList} />
-        <NewChatForm onNewChatCreation={this.handleAddingNewChatToList} />
-        <ChatFireAnimation />
+        <div className="parent">
+
+          <div className="div2">
+            <NewChatForm onNewChatCreation={this.handleAddingNewChatToList} />
+            <ChatFireAnimation />
+          </div>
+          <div className="div3">
+            <ChatList chatList={this.props.masterChatList} />
+
+          </div>
+        </div>
       </React.Fragment>
     );
   }
