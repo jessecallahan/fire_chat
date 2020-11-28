@@ -5,12 +5,12 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
 function ChatListTest() {
   useFirestoreConnect([
-    { collection: 'chat_rooms', orderBy: ['createdAt', 'desc'] }
+    { collection: 'chat_rooms', orderBy: ['createdAt', 'asc'] }
   ])
 
   const chatList = useSelector(state => state.firestore.ordered.chat_rooms);
   console.log(chatList)
-  console.log(chatList)
+
 
   if (isLoaded(chatList)) {
     const chatListItems = chatList[0].messages.map((chat) =>
@@ -20,6 +20,7 @@ function ChatListTest() {
         user_id={chat.user_id}
       />
     );
+    chatListItems.reverse();
     return (
       <React.Fragment>
         <ul className="no-bullets">

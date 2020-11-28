@@ -3,6 +3,7 @@ import { useFirestore } from 'react-redux-firebase'
 import firebase from "../firebase";
 
 function NewChatForm() {
+
   const firestore = useFirestore();
   const user = firebase.auth().currentUser;
   const [msg, setMsg] = useState(); // new code
@@ -16,7 +17,7 @@ function NewChatForm() {
     });
 
 
-    // setMsg(""); // for emptying the old msg
+    setMsg(""); // for emptying the old msg
   }
 
   return (
@@ -35,3 +36,5 @@ function NewChatForm() {
 }
 
 export default NewChatForm;
+
+

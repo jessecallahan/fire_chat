@@ -4,7 +4,7 @@ import { useFirestore } from 'react-redux-firebase'
 
 function CreateChatRoom() {
   const firestore = useFirestore();
-  // const [roomname] = useState()
+  const [room, setRoom] = useState(); // new code
   let roomname = {
     messages: [],
     list_of_users: [],
@@ -13,7 +13,8 @@ function CreateChatRoom() {
 
   function addChatRoomToFirestore(event) {
     event.preventDefault();
-    firestore.collection('chat_rooms').doc('chatroom').set(roomname);
+    console.log(room)
+    firestore.collection('chat_rooms').doc(room).set(roomname);
     // setMsg(""); // for emptying the old msg
   }
 
@@ -21,8 +22,8 @@ function CreateChatRoom() {
     <React.Fragment>
       <form onSubmit={addChatRoomToFirestore}>
         <textarea
-          name="text"
-          // onChange={(ev) => setMsg(ev.target.value)} // new code
+          value={room}
+          onChange={(ev) => setRoom(ev.target.value)} // new code
           placeholder="Name your chat room..."
         />
         <button type="submit">Send</button>

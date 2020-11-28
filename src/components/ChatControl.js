@@ -11,8 +11,10 @@ class ChatControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      test: "test"
       //nothing in local state yet
     };
+
   }
 
   // handleAddingNewChatToList = (newChat) => {
@@ -33,7 +35,7 @@ class ChatControl extends React.Component {
         <div className="parent">
 
           <div className="div2">
-            <NewChatForm1 onNewChatCreation={this.handleAddingNewChatToList} />
+            <NewChatForm1 onNewChatCreation={this.handleListen} />
             <ChatFireAnimation />
           </div>
           <div className="div3">
