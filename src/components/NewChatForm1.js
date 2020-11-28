@@ -4,18 +4,19 @@ import firebase from "../firebase";
 
 function NewChatForm() {
   const firestore = useFirestore();
-  const currentChatRoom = "tickets"
   const user = firebase.auth().currentUser;
   const [msg, setMsg] = useState(); // new code
   function addChatToFirestore(event) {
     event.preventDefault();
-    firestore.collection(currentChatRoom).add({
-      name: user.displayName,
-      text: msg, // new code
-      user_id: user.uid,
-      createdAt: firestore.FieldValue.serverTimestamp(),
+    firestore.collection('chat_rooms').doc('chatroom').update({
+
+      messages: firestore.FieldValue.arrayUnion({
+        name: user.displayName, user_id: "id", text: msg
+      })
     });
-    setMsg(""); // for emptying the old msg
+
+
+    // setMsg(""); // for emptying the old msg
   }
 
   return (

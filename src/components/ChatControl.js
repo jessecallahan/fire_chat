@@ -1,9 +1,10 @@
 import React from 'react';
-import NewChatForm from './NewChatForm';
-import ChatList from './ChatList';
+import NewChatForm1 from './NewChatForm1';
+import ChatListTest from './ChatListTest';
 import ChatFireAnimation from './ChatFireAnimation'
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+
 
 class ChatControl extends React.Component {
 
@@ -32,11 +33,11 @@ class ChatControl extends React.Component {
         <div className="parent">
 
           <div className="div2">
-            <NewChatForm onNewChatCreation={this.handleAddingNewChatToList} />
+            <NewChatForm1 onNewChatCreation={this.handleAddingNewChatToList} />
             <ChatFireAnimation />
           </div>
           <div className="div3">
-            <ChatList chatList={this.props.masterChatList} />
+            <ChatListTest chatList={this.props.masterChatList} />
 
           </div>
         </div>
