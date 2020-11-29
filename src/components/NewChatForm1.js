@@ -12,7 +12,7 @@ function NewChatForm() {
     firestore.collection('chat_rooms').doc('chatroom').update({
 
       messages: firestore.FieldValue.arrayUnion({
-        name: user.displayName, user_id: "id", text: msg
+        name: user.displayName, user_id: user.uid, text: msg
       })
     });
 

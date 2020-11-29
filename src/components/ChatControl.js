@@ -4,6 +4,7 @@ import ChatListTest from './ChatListTest';
 import ChatFireAnimation from './ChatFireAnimation'
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import firebase from "../firebase";
 
 
 class ChatControl extends React.Component {
@@ -11,7 +12,7 @@ class ChatControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: "test"
+      user: "id of user goes here"
       //nothing in local state yet
     };
 

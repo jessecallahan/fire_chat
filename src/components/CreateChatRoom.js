@@ -15,7 +15,7 @@ function CreateChatRoom() {
     event.preventDefault();
     console.log(room)
     firestore.collection('chat_rooms').doc(room).set(roomname);
-    // setMsg(""); // for emptying the old msg
+    setRoom(""); // for emptying the old msg
   }
 
   return (
